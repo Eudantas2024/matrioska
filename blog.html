@@ -5,39 +5,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
+            font-family: abel;
+            margin: 13px 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: linear-gradient(to right, #f8d9f8, #e6f8dc);
+            /* Gradiente de #eb69f7 para #8e44ad */
             display: flex;
-            justify-content: center; /* Centraliza horizontalmente */
-            align-items: center; /* Centraliza verticalmente */
-          
+            flex-direction: column;
+            justify-content: center;
+            /* Centraliza horizontalmente */
+            align-items: center;
+            /* Centraliza verticalmente */
+
         }
 
         .div1 {
-            background: linear-gradient(to right, #f3edf4, #eff4ec); /* Gradiente de #eb69f7 para #8e44ad */
+            background-color: #f4f4f4;
             padding: 20px;
+            font-size: 1.5rem;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            max-width: 600px; /* Limita a largura máxima */
-            text-align: left; /* Centraliza o texto dentro da div */
+            max-width: 900px;
+            /* Limita a largura máxima */
+            text-align: left;
+            /* Centraliza o texto dentro da div */
+            margin: 10px 0;
+            /* Ajusta o espaço entre as divs */
+            line-height: 1.5;
+            /* Valor padrão: normal */
         }
     </style>
 </head>
 
 <body>
     <!-- comentário -->
-    
+
 
     <div class="div1">
         <a href="index.html"> Voltar para página principal</a>
         <h3>Uma História sobre código HTML</h3>
         <p>O código HTML é muito importante para a internet, através dele podemos ver muitas coisas legais como,
             texto, áudio e vídeo.</p>
-        <p>A World Wide Web, a teia de informações que conecta bilhões de pessoas em todo o mundo, tem suas raízes na década de 1960, com a criação da Arpanet, uma rede de computadores inicialmente utilizada para fins militares e acadêmicos nos Estados Unidos. A partir daí, a internet evoluiu rapidamente, impulsionada por avanços tecnológicos e a crescente necessidade de comunicação global. Nos anos 1990, Tim Berners-Lee desenvolveu o HTML, o HTTP e o primeiro navegador web, dando origem à World Wide Web como a conhecemos hoje. A popularização da internet foi marcada pela criação de sites e portais de notícias, o surgimento do comércio eletrônico e a explosão das redes sociais. Com o passar dos anos, a web se transformou em uma plataforma dinâmica e interativa, impulsionada por tecnologias como JavaScript e CSS, que permitem a criação de sites cada vez mais ricos e complexos. A web móvel revolucionou a forma como acessamos informações, com a criação de aplicativos e sites otimizados para dispositivos móveis. Atualmente, a web continua a evoluir, com o advento da Web Semântica, que busca tornar a informação mais compreensível para as máquinas, e a inteligência artificial, que promete personalizar ainda mais a experiência do usuário. A história da web é uma jornada fascinante, marcada por inovação e transformação, que moldou a sociedade como conhecemos hoje.</p>
+        <p>A World Wide Web, a teia de informações que conecta bilhões de pessoas em todo o mundo, tem suas raízes na
+            década de 1960, com a criação da Arpanet, uma rede de computadores inicialmente utilizada para fins
+            militares e acadêmicos nos Estados Unidos. A partir daí, a internet evoluiu rapidamente, impulsionada por
+            avanços tecnológicos e a crescente necessidade de comunicação global. Nos anos 1990, Tim Berners-Lee
+            desenvolveu o HTML, o HTTP e o primeiro navegador web, dando origem à World Wide Web como a conhecemos hoje.
+            A popularização da internet foi marcada pela criação de sites e portais de notícias, o surgimento do
+            comércio eletrônico e a explosão das redes sociais. Com o passar dos anos, a web se transformou em uma
+            plataforma dinâmica e interativa, impulsionada por tecnologias como JavaScript e CSS, que permitem a criação
+            de sites cada vez mais ricos e complexos. A web móvel revolucionou a forma como acessamos informações, com a
+            criação de aplicativos e sites otimizados para dispositivos móveis. Atualmente, a web continua a evoluir,
+            com o advento da Web Semântica, que busca tornar a informação mais compreensível para as máquinas, e a
+            inteligência artificial, que promete personalizar ainda mais a experiência do usuário. A história da web é
+            uma jornada fascinante, marcada por inovação e transformação, que moldou a sociedade como conhecemos hoje.
+        </p>
+    </div></br></br>
+    <div class="div1">
+        <h3>CSS: A Linguagem que Veste a Web</h3>
+        <p>CSS: A Linguagem que Veste a Web
+            CSS, sigla para Cascading Style Sheets (Folhas de Estilo em Cascada), é a linguagem de estilo fundamental
+            para definir a apresentação visual de páginas da web. Enquanto o HTML estrutura o conteúdo, o CSS molda a
+            aparência, controlando cores, fontes, tamanhos, espaçamentos, layouts e muito mais. Imagine o HTML como o
+            esqueleto de um site e o CSS como a pele, os músculos e as roupas que dão forma e vida ao design. Com o CSS,
+            você pode transformar páginas simples e estáticas em interfaces visuais ricas e interativas, adaptáveis a
+            diferentes dispositivos e tamanhos de tela. As regras CSS são compostas por seletores, que identificam os
+            elementos HTML a serem estilizados, e declarações, que definem as propriedades e valores a serem aplicados.
+            A cascata, característica que dá nome à linguagem, determina a ordem em que as regras são aplicadas,
+            resolvendo conflitos de estilo. O CSS permite separar a estrutura do conteúdo da sua apresentação, tornando
+            o código mais organizado, facilitando a manutenção e permitindo que designers e desenvolvedores trabalhem de
+            forma mais colaborativa. Além disso, o CSS possibilita a criação de layouts responsivos, que se adaptam
+            automaticamente a diferentes tamanhos de tela, garantindo uma experiência de navegação otimizada em
+            dispositivos móveis e desktops. Com o avanço das tecnologias web, o CSS se tornou uma ferramenta
+            indispensável para construir interfaces modernas e elegantes. Frameworks CSS como Bootstrap e Foundation
+            oferecem uma base sólida para o desenvolvimento rápido de projetos, fornecendo componentes pré-construídos e
+            um conjunto de estilos pré-definidos. A comunidade CSS está em constante evolução, com o surgimento de novas
+            técnicas e recursos, como Flexbox e Grid, que revolucionaram a forma de criar layouts. Ao dominar o CSS,
+            você estará capacitado a criar designs web personalizados, eficientes e esteticamente agradáveis, elevando
+            seus projetos a um novo patamar.
+
+        </p>
     </div>
 
 </body>
