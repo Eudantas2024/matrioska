@@ -54,7 +54,7 @@ function respondToUser(input) {
     } else if (step === 3.1) {
         otherCity = input;
         response = `Interessante, ${userName}. Como é morar em ${otherCity}? Você gosta de morar lá? Responda com 'sim' ou 'não'.`;
-        step++;
+        step = 4;
     } else if (step === 4) {
         if (userMessage.includes("sim")) {
             response = `Que ótimo saber que você gosta de morar aí! Você gosta de assuntos sobre tecnologia? Responda com 'sim' ou 'não'.`;
