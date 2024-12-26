@@ -57,10 +57,10 @@ function respondToUser(input) {
         step++;
     } else if (step === 4) {
         if (userMessage.includes("sim")) {
-            response = `Que ótimo saber que você gosta de morar aí! Você gosta de assuntos sobre tecnologia?`;
+            response = `Que ótimo saber que você gosta de morar aí! Você gosta de assuntos sobre tecnologia? Responda com 'sim' ou 'não'.`;
             step = 5;  // Atalho para step === 5
         } else if (userMessage.includes("não") || userMessage.includes('n') || userMessage.includes('nao')) {
-            response = `Sinto muito que você não gosta de morar aí, mas a vida segue né?.. Espero que as coisas melhorem para você. Você gosta de assuntos sobre tecnologia?`;
+            response = `Sinto muito que você não gosta de morar aí, mas a vida segue né?.. Espero que as coisas melhorem para você. Você gosta de assuntos sobre tecnologia? Responda com 'sim' ou 'não'.`;
             step = 5;  // Atalho para step === 5
         }
     } else if (step === 5) {
