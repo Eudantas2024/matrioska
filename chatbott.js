@@ -5,7 +5,9 @@ document.getElementById("userInput").addEventListener("keypress", function(event
 });
 
 let userName = "";
-let waitingForResponse = false;
+let userCity = "";
+let otherCity = "";
+let step = 0;
 
 function sendMessage() {
     const userInput = document.getElementById("userInput").value;
@@ -30,35 +32,100 @@ function respondToUser(input) {
     let response = "Desculpe, não entendi sua mensagem.";
     const userMessage = input.toLowerCase();
 
-    if (waitingForResponse) {
-        if (userMessage.includes("bem")) {
-            response = `Que ótimo, ${userName}! Fico feliz em ouvir isso. Como posso ajudar você hoje?`;
-            waitingForResponse = false;
-        } else if (userMessage.includes("mal")) {
-            response = `Sinto muito em ouvir isso, ${userName}. Se quiser conversar sobre algo ou precisar de ajuda, estou aqui para ouvir.`;
-            waitingForResponse = false;
+    if (step === 0) {
+        response = "Olá! Qual é o seu nome?";
+        step++;
+    } else if (step === 1) {
+        userName = input;
+        response = `Blz ${userName}! Você fala de qual cidade no momento?`;
+        step++;
+    } else if (step === 2) {
+        userCity = input;
+        response = `Você mora em ${userCity}? Responda apenas 'sim' ou 'não'.`;
+        step++;
+    } else if (step === 3) {
+        if (userMessage.includes("sim")) {
+            response = `Hmm, legal, ${userName} de ${userCity}. Você gosta de morar aí? Responda apenas com 'sim' ou 'não'.`;
+            step++;
+        } else if (userMessage.includes("não") || userMessage.includes('n') || userMessage.includes('nao')) {
+            response = `E onde você mora?`;
+            step = 3.1;
         }
-    } else {
-        if (userMessage.includes("olá") || userMessage.includes("oi") || userMessage.includes("ola") || userMessage.includes("hello")) {
-            response = "Olá! Como posso ajudar você hoje? Qual é o seu nome?";
-        } else if (userMessage.includes("meu nome é") || userMessage.includes("") || userMessage.includes("me chamo")) {
-            userName = input.split(" ").pop(); // Simples extração do nome
-            response = `Prazer em conhecê-lo, ${userName}! Como você está hoje?`;
-            waitingForResponse = true;
-        } else if (userMessage.includes("como você está")) {
-            response = `Estou bem, ${userName}. Obrigado por perguntar! E você, como está?`;
-            waitingForResponse = true;
-        } else if (userMessage.includes("qual é o sentido da vida")) {
-            response = `42! Brincadeiras à parte, o sentido da vida depende de cada pessoa. E para você, ${userName}, qual é o sentido da vida?`;
-        } else if (userMessage.includes("qual é a sua cor favorita")) {
-            response = "Eu sou um chatbot, então não tenho uma cor favorita. Mas gosto de imaginar que seria azul!";
-        } else if (userMessage.includes("qual é o seu propósito")) {
-            response = `Meu propósito é ajudar você com informações e tarefas, ${userName}. Em que posso ajudar hoje?`;
-        } else if (userMessage.includes("me conte uma piada")) {
-            response = "Por que o programador foi ao médico? Porque ele tinha um vírus!";
-        } else if (userMessage.includes("adeus") || userMessage.includes("tchau")) {
-            response = `Adeus, ${userName}! Espero falar com você novamente em breve.`;
+    } else if (step === 3.1) {
+        otherCity = input;
+        response = `Interessante, ${userName}. Como é morar em ${otherCity}? Você gosta de morar lá? Responda com 'sim' ou 'não'.`;
+        step++;
+    } else if (step === 4) {
+        if (userMessage.includes("sim")) {
+            response = `Que ótimo saber que você gosta de morar aí! Você gosta de assuntos sobre tecnologia?`;
+            step = 5;  // Atalho para step === 5
+        } else if (userMessage.includes("não") || userMessage.includes('n') || userMessage.includes('nao')) {
+            response = `Sinto muito que você não gosta de morar aí, mas a vida segue né?.. Espero que as coisas melhorem para você. Você gosta de assuntos sobre tecnologia?`;
+            step = 5;  // Atalho para step === 5
         }
+    } else if (step === 5) {
+        if (userMessage.includes("sim")) {
+            response = `Que legal, vamos falar sobre tecnologia então. Você gosta mais de Computadores ou de Smartphones?`;
+            step = 5.1;
+        } else if (userMessage.includes("não") || userMessage.includes('n') || userMessage.includes('nao')) {
+            response = `Você gosta de cinema? Responda com 'sim' ou 'não'`;
+            step = 6.1;
+        }
+    } else if (step === 5.1) {
+        if (userMessage.includes("computadores") || userMessage.includes("pc") || userMessage.includes("computador")) {
+            response = `PC de mesa ou notebook?`;
+            step = 5.2;
+        } else if (userMessage.includes("smartphones") || userMessage.includes("celular") || userMessage.includes("smartphone")) {
+            response = `Legal, então você prefere Smartphones, telas móveis são mais práticas, não é?`;
+            step = 7;
+        }
+    } else if (step === 5.2) {
+        if (userMessage.includes("pc de mesa") || userMessage.includes("pc") || userMessage.includes("computador")) {
+            response = `Ótimo, PCs de mesa são poderosos!`;
+            step = 7;
+        } else if (userMessage.includes("notebook")) {
+            response = `Notebooks são muito práticos!`;
+            step = 7;
+        }
+    } else if (step === 6.1) {
+        if (userMessage.includes("sim")) {
+            response = `Que legal, qual seu filme preferido?`;
+            step = 6.2;
+        } else if (userMessage.includes("não") || userMessage.includes('n') || userMessage.includes('nao')) {
+            response = `Você gosta de música?`;
+            step = 6.4;  // Atalho para step === 6.4
+        }
+    } else if (step === 6.2) {
+        const filme = input;
+        response = `Legal, o filme ${filme} é de qual gênero? Suspense, drama, comédia?`;
+        step = 6.3;
+    } else if (step === 6.3) {
+        const tipofilme = input;
+        response = `Interessante, você gosta de outros filmes que não sejam deste gênero ${tipofilme}?`;
+        if (userMessage.includes("sim")) {
+            response = `Legal, que bom que gosta de outros estilos!`;
+            step = 7;
+        } else if (userMessage.includes("não")) {
+            response = `Que pena, outros filmes de outros estilos são muito bons também.`;
+            step = 7;
+        }
+    } else if (step === 6.4) {
+        response = `Que legal, qual sua música favorita?`;
+        step = 6.5;
+    } else if (step === 6.5) {
+        const musica = input;
+        response = `Legal, a música ${musica} é de qual cantor?`;
+        step = 6.6;
+    } else if (step === 6.6) {
+        const cantor = input;
+        response = `Você gosta de outras músicas de ${cantor}?`;
+        step = 6.7;
+    } else if (step === 6.7) {
+        const r1 = input;
+        response = 'Legal, até mais!';
+        step = 7;
+    } else if (step === 7) {
+        response = `Legal! Obrigado por compartilhar, ${userName}! Se precisar de mais alguma coisa, estou aqui para ajudar.`;
     }
 
     setTimeout(() => addMessage("bot", response), 500);
